@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand navbar-dark bg-primary px-4 shadow-sm">
+  <!-- Left: System Title -->
+  <div class="navbar-brand fw-bold fs-3">
+    ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ Obeso Medical
+    Clinic Management System
+  </div>
+
+  <!-- Right: Date/Time + Logout -->
+  <ul class="navbar-nav ms-auto align-items-center gap-3">
+    <!-- Date & Time -->
+    <li class="nav-item text-white fw-medium fs-6">
+      <span id="dateTime"></span>
+    </li>
+
+    <!-- Logout Button -->
+    <li class="nav-item">
+      <form action="../Public/logout.php" method="post" class="d-inline">
+        <button type="submit" class="btn btn-danger fw-semibold px-4">
+          Logout
+        </button>
+      </form>
+    </li>
+  </ul>
+</nav>
+
+<!-- Live Date & Time Script -->
+<script>
+  function updateDateTime() {
+    const now = new Date();
+    const options = {
+      weekday: "short",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    };
+    document.getElementById("dateTime").textContent = now.toLocaleString(
+      "en-US",
+      options
+    );
+  }
+
+  updateDateTime();
+  setInterval(updateDateTime, 1000);
+</script>
